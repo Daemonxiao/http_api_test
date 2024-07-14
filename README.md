@@ -8,17 +8,18 @@ various HTTP methods (GET, POST, PUT, DELETE) and includes robust assertion capa
 ## Installation
 ```bash
 # Clone the repository
-git clone https://github.com/your/repository.git
-cd repository
+git clone https://github.com/Daemonxiao/http_api_test.git
+cd http_api_test
 
 # Build the tool
-go build -o api-test-tool
+go build -o api-test-tool  ./cmd/
+mv api-test-tool /usr/local/bin/
 ```
 # Usage
 Create a configuration file (test_cases.yaml) defining your API test cases.
 Execute tests using the tool:
 ```bash
-./api-test-tool -config test_cases.yaml
+api-test-tool -f test_cases.yaml
 ```
 Configuration File Example (test_cases.yaml)
 ```yaml
