@@ -34,3 +34,7 @@ tests:
         Configs:
           - Name: "k1"
             SettingValue: "v1"
+          - Name: "k2"
+            CurrentValue: "v2"
+          - Name: "k3"
+            DefaultValue: "v3" 
