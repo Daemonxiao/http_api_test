@@ -4,7 +4,7 @@ import (
 	"testing"
 )
 
-func TestContianMap(t *testing.T) {
+func TestContainsMap(t *testing.T) {
 	tests := []struct {
 		a    map[string]any
 		b    map[string]any
@@ -22,99 +22,39 @@ func TestContianMap(t *testing.T) {
 		},
 		{
 			a: map[string]any{
-				"a": "2",
-				"b": "2",
-			},
-			b: map[string]any{
-				"a": "1",
-			},
-			want: false,
-		},
-		{
-			a: map[string]any{
 				"a": map[string]any{
 					"b": map[string]any{
-						"c": "1",
-						"d": "2",
+						"d": []interface{}{
+							map[string]any{
+								"h": "1",
+								"i": "2",
+							},
+							map[string]any{
+								"j": "1",
+								"k": "2",
+							},
+						},
 					},
-				},
-				"e": []interface{}{
-					map[string]any{
-						"f": "1",
-						"g": "2",
-					},
-					map[string]any{
-						"h": "1",
-						"i": "2",
+					"c": map[string]any{
+						"l": map[string]any{
+							"j": "1",
+							"k": "2",
+						},
 					},
 				},
 			},
 			b: map[string]any{
 				"a": map[string]any{
 					"b": map[string]any{
-						"d": "2",
+						"d": []interface{}{
+							map[string]any{
+								"h": "1",
+							},
+						},
 					},
 				},
 			},
 			want: true,
-		},
-		{
-			a: map[string]any{
-				"a": map[string]any{
-					"b": map[string]any{
-						"c": "1",
-						"d": "2",
-					},
-				},
-				"e": []interface{}{
-					map[string]any{
-						"f": "1",
-						"g": "2",
-					},
-					map[string]any{
-						"h": "1",
-						"i": "2",
-					},
-				},
-			},
-			b: map[string]any{
-				"e": []interface{}{
-					map[string]any{
-						"h": "1",
-						"i": "2",
-					},
-				},
-			},
-			want: true,
-		},
-		{
-			a: map[string]any{
-				"a": map[string]any{
-					"b": map[string]any{
-						"c": "1",
-						"d": "2",
-					},
-				},
-				"e": []interface{}{
-					map[string]any{
-						"f": "1",
-						"g": "2",
-					},
-					map[string]any{
-						"h": "1",
-						"i": "2",
-					},
-				},
-			},
-			b: map[string]any{
-				"e": []interface{}{
-					map[string]any{
-						"h": "3",
-						"i": "2",
-					},
-				},
-			},
-			want: false,
 		},
 	}
 

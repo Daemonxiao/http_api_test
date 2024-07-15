@@ -39,6 +39,7 @@ func ContainsMap(map1, map2 map[string]interface{}) bool {
 func containsSlice(slice1 []interface{}, slice2 []interface{}) bool {
 	for i := range slice2 {
 		for j := range slice1 {
+			isContain := false
 			switch v2 := slice2[i].(type) {
 			case map[string]interface{}:
 				v1, ok := slice1[j].(map[string]interface{})
@@ -55,6 +56,8 @@ func containsSlice(slice1 []interface{}, slice2 []interface{}) bool {
 					} else {
 						continue
 					}
+				} else {
+					isContain = true
 				}
 			case []interface{}:
 				v1, ok := slice1[j].([]interface{})
@@ -71,7 +74,12 @@ func containsSlice(slice1 []interface{}, slice2 []interface{}) bool {
 					} else {
 						continue
 					}
+				} else {
+					isContain = true
 				}
+			}
+			if isContain {
+				break
 			}
 		}
 	}
